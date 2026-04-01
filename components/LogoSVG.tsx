@@ -8,7 +8,7 @@
 export function LogoSVG({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="460 550 840 115"
+      viewBox="390 545 970 125"
       className={className}
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Match Control"
