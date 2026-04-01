@@ -2,8 +2,16 @@
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  viewBox="460 550 840 115"
  preserveAspectRatio="xMidYMid meet">
+<defs>
+  <!-- Invierte el alpha: el fondo blanco pasa a transparente,
+       los huecos de las letras pasan a blanco sólido -->
+  <filter id="invert-alpha" x="460" y="550" width="840" height="115" filterUnits="userSpaceOnUse">
+    <feFlood flood-color="white" flood-opacity="1" result="flood"/>
+    <feComposite in="flood" in2="SourceGraphic" operator="out"/>
+  </filter>
+</defs>
 <g transform="translate(0.000000,1212.000000) scale(0.100000,-0.100000)"
-fill="#ffffff" stroke="none">
+fill="#ffffff" stroke="none" filter="url(#invert-alpha)">
 <path d="M0 6060 l0 -6060 8280 0 8280 0 0 6060 0 6060 -8280 0 -8280 0 0
 -6060z m6510 255 l0 -85 115 0 115 0 0 -65 0 -65 -115 0 -115 0 0 -143 c0
 -181 -1 -180 136 -185 l94 -4 0 -69 0 -69 -112 0 c-133 0 -177 10 -217 51 -43
