@@ -1,4 +1,5 @@
 import { FOOTER } from "@/lib/constants";
+import { LogoSVG } from "@/components/LogoSVG";
 
 export function Footer() {
   return (
@@ -7,7 +8,7 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           {/* Logo + tagline */}
           <div className="text-center md:text-left">
-            <img src="/logo.svg" alt="Match Control" className="h-7 w-auto mx-auto md:mx-0" />
+            <LogoSVG className="h-7 w-auto mx-auto md:mx-0" />
             <p className="mt-1 text-sm text-[#9CA3AF]">{FOOTER.tagline}</p>
           </div>
 

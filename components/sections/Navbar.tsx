@@ -6,6 +6,7 @@ import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { GetStartedButton } from "@/components/ui/get-started-button";
 import { NAV_LINKS } from "@/lib/constants";
+import { LogoSVG } from "@/components/LogoSVG";
 
 interface NavbarProps {
   openModal: () => void;
@@ -34,7 +35,7 @@ export function Navbar({ openModal }: NavbarProps) {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         {/* Logo */}
         <a href="/" className="flex items-center">
-          <img src="/logo.svg" alt="Match Control" className="h-8 w-auto" />
+          <LogoSVG className="h-8 w-auto" />
         </a>
 
         {/* Desktop nav */}
@@ -62,7 +63,7 @@ export function Navbar({ openModal }: NavbarProps) {
           </SheetTrigger>
           <SheetContent side="right" className="border-[#1F2937] bg-[#0D1117] w-72">
             <div className="mt-8 flex flex-col gap-6">
-              <img src="/logo.svg" alt="Match Control" className="h-7 w-auto" />
+              <LogoSVG className="h-7 w-auto" />
               <nav className="flex flex-col gap-4">
                 {NAV_LINKS.map((link) => (
                   <a
