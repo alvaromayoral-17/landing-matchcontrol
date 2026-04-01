@@ -7,10 +7,7 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           {/* Logo + tagline */}
           <div className="text-center md:text-left">
-            <p className="text-lg font-bold">
-              <span className="text-white">match</span>
-              <span className="text-[#2563EB]">control</span>
-            </p>
+            <img src="/logo.svg" alt="Match Control" className="h-7 w-auto mx-auto md:mx-0" />
             <p className="mt-1 text-sm text-[#9CA3AF]">{FOOTER.tagline}</p>
           </div>
 

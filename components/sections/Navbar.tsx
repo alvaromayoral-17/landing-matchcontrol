@@ -33,9 +33,8 @@ export function Navbar({ openModal }: NavbarProps) {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         {/* Logo */}
-        <a href="/" className="text-xl font-bold tracking-tight">
-          <span className="text-white">match</span>
-          <span className="text-[#2563EB]">control</span>
+        <a href="/" className="flex items-center">
+          <img src="/logo.svg" alt="Match Control" className="h-8 w-auto" />
         </a>
 
         {/* Desktop nav */}
@@ -63,10 +62,7 @@ export function Navbar({ openModal }: NavbarProps) {
           </SheetTrigger>
           <SheetContent side="right" className="border-[#1F2937] bg-[#0D1117] w-72">
             <div className="mt-8 flex flex-col gap-6">
-              <span className="text-xl font-bold">
-                <span className="text-white">match</span>
-                <span className="text-[#2563EB]">control</span>
-              </span>
+              <img src="/logo.svg" alt="Match Control" className="h-7 w-auto" />
               <nav className="flex flex-col gap-4">
                 {NAV_LINKS.map((link) => (
                   <a
