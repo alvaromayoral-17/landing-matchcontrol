@@ -1,8 +1,85 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeInUp, slideInLeft, slideInRight, staggerContainer } from "@/lib/animations";
+import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { SOLUTION } from "@/lib/constants";
+import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+import { Settings, Zap, Layout, BarChart2, Users, Search } from "lucide-react";
+
+const timelineData = [
+  {
+    id: 1,
+    title: "Personalización",
+    date: "Módulo 1",
+    content:
+      "Software a medida de tu club. No una plantilla genérica. Cada módulo se configura según tus procesos, categorías y estructura interna.",
+    category: "Configuración",
+    icon: Settings,
+    relatedIds: [2, 3],
+    status: "completed" as const,
+    energy: 100,
+  },
+  {
+    id: 2,
+    title: "Automatización",
+    date: "Módulo 2",
+    content:
+      "Alertas automáticas, scraping de datos de BeSoccer, importación de estadísticas y reportes generados solos. Cero trabajo manual.",
+    category: "Automatización",
+    icon: Zap,
+    relatedIds: [1, 3],
+    status: "completed" as const,
+    energy: 90,
+  },
+  {
+    id: 3,
+    title: "Todo en uno",
+    date: "Módulo 3",
+    content:
+      "Plantilla, finanzas, rivales, ojeadores, patrocinadores y redes sociales. Todo conectado y visible desde un solo panel de control.",
+    category: "Integración",
+    icon: Layout,
+    relatedIds: [1, 2, 4],
+    status: "completed" as const,
+    energy: 85,
+  },
+  {
+    id: 4,
+    title: "Análisis rival",
+    date: "Módulo 4",
+    content:
+      "Informes tácticos detallados con datos de BeSoccer. Estadísticas de temporada, patrones de juego y preparación de partidos automatizada.",
+    category: "Análisis",
+    icon: BarChart2,
+    relatedIds: [3, 5],
+    status: "in-progress" as const,
+    energy: 70,
+  },
+  {
+    id: 5,
+    title: "Gestión plantilla",
+    date: "Módulo 5",
+    content:
+      "Control total de contratos, rendimiento y lesiones. Seguimiento individual de cada jugador con métricas actualizadas en tiempo real.",
+    category: "Plantilla",
+    icon: Users,
+    relatedIds: [4, 6],
+    status: "in-progress" as const,
+    energy: 60,
+  },
+  {
+    id: 6,
+    title: "Red ojeadores",
+    date: "Módulo 6",
+    content:
+      "Sistema de scouting integrado con informes de ojeadores, seguimiento de candidatos y gestión completa del proceso de captación.",
+    category: "Scouting",
+    icon: Search,
+    relatedIds: [5, 1],
+    status: "pending" as const,
+    energy: 40,
+  },
+];
 
 export function Solution() {
   return (
@@ -13,7 +90,7 @@ export function Solution() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-16 text-center"
+          className="mb-4 text-center"
         >
           <motion.h2
             variants={fadeInUp}
@@ -21,54 +98,15 @@ export function Solution() {
           >
             {SOLUTION.title}
           </motion.h2>
+          <motion.p
+            variants={fadeInUp}
+            className="mt-4 text-sm text-[#9CA3AF]"
+          >
+            Haz clic en cada módulo para explorar sus capacidades
+          </motion.p>
         </motion.div>
 
-        <div className="flex flex-col gap-16">
-          {SOLUTION.features.map((feature, index) => {
-            const isEven = index % 2 === 0;
-            return (
-              <div
-                key={feature.title}
-                className={`flex flex-col items-center gap-10 md:flex-row ${
-                  isEven ? "" : "md:flex-row-reverse"
-                }`}
-              >
-                {/* Visual placeholder */}
-                <motion.div
-                  variants={isEven ? slideInLeft : slideInRight}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-80px" }}
-                  className="flex-1"
-                >
-                  <div className="glass-card flex h-64 items-center justify-center rounded-2xl">
-                    <div className="text-center">
-                      <div className="mb-3 text-5xl">{feature.icon}</div>
-                      <p className="text-sm text-[#9CA3AF]">Vista previa del módulo</p>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Content */}
-                <motion.div
-                  variants={isEven ? slideInRight : slideInLeft}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-80px" }}
-                  className="flex-1"
-                >
-                  <span className="mb-3 inline-block rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-400">
-                    {feature.badge}
-                  </span>
-                  <h3 className="mb-3 text-2xl font-bold text-white">{feature.title}</h3>
-                  <p className="text-base leading-relaxed text-[#9CA3AF]">
-                    {feature.description}
-                  </p>
-                </motion.div>
-              </div>
-            );
-          })}
-        </div>
+        <RadialOrbitalTimeline timelineData={timelineData} />
       </div>
     </section>
   );
