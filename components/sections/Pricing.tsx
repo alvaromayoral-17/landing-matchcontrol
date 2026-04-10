@@ -69,7 +69,6 @@ export function Pricing({ openModal }: PricingProps) {
                   <span className="text-xl font-bold text-[#2563EB]">
                     {plan.monthly}
                   </span>
-                  <span className="text-sm text-[#9CA3AF]">/ mes</span>
                 </div>
               </div>
 
