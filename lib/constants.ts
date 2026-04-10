@@ -151,38 +151,86 @@ export const PRICING = {
   title: "Planes claros, sin letra pequeña",
   plans: [
     {
-      name: "Plan Estándar",
-      implementation: "4.500€",
-      monthly: "299€/mes",
+      name: "Básico",
+      implementation: "2.000€",
+      monthly: "149€/mes",
       features: [
-        "Dashboard personalizado completo",
-        "Módulo de plantilla y contratos",
-        "Módulo financiero",
-        "Análisis de rivales",
-        "Formación y soporte",
-        "Actualizaciones incluidas",
+        "Inicio",
+        "Calendario",
+        "Plantilla",
+        "Cuerpo Médico",
+        "Configuración",
       ],
       highlighted: false,
-      badge: null,
+      badge: "Starter",
       cta: "Empezar ahora",
     },
     {
-      name: "Plan Lanzamiento",
-      implementation: "2.500€",
+      name: "Club",
+      implementation: "2.700€",
       monthly: "199€/mes",
       features: [
-        "Todo lo del Plan Estándar",
-        "Módulo de ojeadores",
-        "Módulo de patrocinadores",
-        "Integración redes sociales",
-        "Scraping automático BeSoccer",
-        "Soporte prioritario 24/7",
+        "Todo el plan Básico",
+        "Pack Deportivo",
+        "Pack Económico",
+        "Formación y soporte",
+        "Actualizaciones incluidas",
       ],
       highlighted: true,
-      badge: "OFERTA LIMITADA",
+      badge: "Más popular",
+      cta: "Empezar ahora",
+    },
+    {
+      name: "Club Pro",
+      implementation: "3.000€",
+      monthly: "249€/mes",
+      features: [
+        "Todo el plan Club",
+        "Pack Marketing",
+        "Análisis de rivales avanzado",
+        "Ojeadores",
+        "Simulador de fichajes",
+        "Soporte prioritario 24/7",
+      ],
+      highlighted: false,
+      badge: "Pro",
       cta: "Empezar ahora",
     },
   ],
+};
+
+export const PRICING_ADDONS = [
+  {
+    name: "Pack Deportivo",
+    price: "+500€",
+    features: [
+      "Análisis de Rivales",
+      "Ojeadores",
+      "Simulador de Fichajes",
+    ],
+  },
+  {
+    name: "Pack Económico",
+    price: "+450€",
+    features: [
+      "Finanzas",
+      "Ingresos y Gastos",
+      "Patrocinadores",
+    ],
+  },
+  {
+    name: "Pack Marketing",
+    price: "+350€",
+    features: [
+      "Gestión de Redes Sociales",
+      "Planificación de contenido",
+      "Análisis de engagement",
+    ],
+  },
+];
+
+export const PRICING_SAVINGS = {
+  message: "Contrata Básico + 3 packs por separado: 3.300€. Club Pro incluye todo por 3.000€. ¡Ahorra 300€!",
 };
 
 export const FINAL_CTA = {

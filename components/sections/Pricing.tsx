@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
-import { PRICING } from "@/lib/constants";
+import { PRICING, PRICING_ADDONS, PRICING_SAVINGS } from "@/lib/constants";
 import { GetStartedButton } from "@/components/ui/get-started-button";
 
 interface PricingProps {
@@ -34,7 +34,7 @@ export function Pricing({ openModal }: PricingProps) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid gap-8 md:grid-cols-2"
+          className="grid gap-8 md:grid-cols-3"
         >
           {PRICING.plans.map((plan) => (
             <motion.div
@@ -95,15 +95,69 @@ export function Pricing({ openModal }: PricingProps) {
           ))}
         </motion.div>
 
-        <motion.p
+        {/* Add-ons Section */}
+        <div className="mt-16">
+          <motion.h3
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-2xl font-bold text-white text-center mb-10"
+          >
+            Complementa tu plan
+          </motion.h3>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="grid gap-8 md:grid-cols-3"
+          >
+            {PRICING_ADDONS.map((addon) => (
+              <motion.div
+                key={addon.name}
+                variants={fadeInUp}
+                className="glass-card rounded-2xl p-8"
+              >
+                <h4 className="text-lg font-bold text-white mb-2">
+                  {addon.name}
+                </h4>
+                <p className="text-xl font-extrabold text-[#2563EB] mb-6">
+                  {addon.price}
+                </p>
+
+                <ul className="space-y-2">
+                  {addon.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2">
+                      <Check
+                        size={14}
+                        className="mt-1 shrink-0 text-[#2563EB]"
+                      />
+                      <span className="text-xs text-[#9CA3AF]">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Savings Message */}
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="mt-8 text-center text-sm text-[#9CA3AF]"
+          transition={{ delay: 0.6 }}
+          className="mt-12 text-center"
         >
-          Sin permanencia · Soporte incluido · Puedes cancelar cuando quieras
-        </motion.p>
+          <p className="text-sm text-[#9CA3AF] mb-4">
+            {PRICING_SAVINGS.message}
+          </p>
+          <p className="text-xs text-[#6B7280]">
+            Sin permanencia · Soporte incluido · Puedes cancelar cuando quieras
+          </p>
+        </motion.div>
       </div>
     </section>
   );
