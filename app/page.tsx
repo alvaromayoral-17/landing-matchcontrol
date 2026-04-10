@@ -11,7 +11,7 @@ import { Pricing } from "@/components/sections/Pricing";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { Footer } from "@/components/sections/Footer";
 
-const CALENDAR_URL = "https://calendar.app.google/bX5gn62K5ycaVSh78";
+const CALENDAR_URL = "https://calendar.app.google/vmoyf7sfxRtQwA55A";
 
 export default function Home() {
   const openCalendar = () => window.open(CALENDAR_URL, "_blank");
