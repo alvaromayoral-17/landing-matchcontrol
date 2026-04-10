@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { Problem } from "@/components/sections/Problem";
@@ -11,29 +10,26 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Pricing } from "@/components/sections/Pricing";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { Footer } from "@/components/sections/Footer";
-import { BookingModal } from "@/components/booking/BookingModal";
+
+const CALENDAR_URL = "https://calendar.app.google/bX5gn62K5ycaVSh78";
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const openCalendar = () => window.open(CALENDAR_URL, "_blank");
 
   return (
     <>
-      <Navbar openModal={openModal} />
+      <Navbar openModal={openCalendar} />
       <main>
-        <Hero openModal={openModal} />
+        <Hero openModal={openCalendar} />
         <Problem />
         <Solution />
         <Benefits />
         <HowItWorks />
         <Testimonials />
-        <Pricing openModal={openModal} />
-        <FinalCTA openModal={openModal} />
+        <Pricing openModal={openCalendar} />
+        <FinalCTA openModal={openCalendar} />
       </main>
       <Footer />
-      <BookingModal isOpen={isModalOpen} onClose={closeModal} />
     </>
   );
 }
